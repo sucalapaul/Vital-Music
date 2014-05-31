@@ -32,4 +32,8 @@ class MusicController < ApplicationController
   def callback
 
   end
+
+  def test
+    render json: { test: 'OK' }
+  end
 end
