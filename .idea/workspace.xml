@@ -29,8 +29,8 @@
       <file leaf-file-name="music_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/music_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3322034" vertical-offset="548" max-vertical-offset="1020">
-              <caret line="38" column="137" selection-start-line="38" selection-start-column="137" selection-end-line="38" selection-end-column="137" />
+            <state vertical-scroll-proportion="0.620339" vertical-offset="548" max-vertical-offset="1054">
+              <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -588,8 +588,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/music_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3322034" vertical-offset="548" max-vertical-offset="1020">
-          <caret line="38" column="137" selection-start-line="38" selection-start-column="137" selection-end-line="38" selection-end-column="137" />
+        <state vertical-scroll-proportion="0.620339" vertical-offset="548" max-vertical-offset="1054">
+          <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
           <folding />
         </state>
       </provider>

@@ -41,7 +41,9 @@ class MusicController < ApplicationController
     tracks = []
     if response['kind'] == 'playlist'
       response['tracks'].each do |t|
-        tracks << t.symbolize_keys.slice(:stream_url, :artwork_url, :title)
+        tt = t.symbolize_keys.slice(:stream_url, :artwork_url, :title)
+        tt[:stream_url] = tt[:stream_url] + '?client_id=d0ca7c8afa63021bd17991617a5fb275'
+        tracks << tt
       end
     end
 
