@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails VitalMusic: development" uuid="3ebe18a5-742b-4fe7-ae26-7f210ba071fb">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails VitalMusic: test" uuid="a90b8117-19e7-4936-ae08-35ab2a4415d4">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails VitalMusic: production" uuid="c18b584c-bbcb-4f3d-8901-bae6f5823b86">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails VitalMusic: default" uuid="2e7f2e08-62b4-4ea3-b2d3-2aa0ae6e6a51">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

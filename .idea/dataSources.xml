@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3334988514">
+    <data-source source="LOCAL" name="Rails VitalMusic: development" uuid="3ebe18a5-742b-4fe7-ae26-7f210ba071fb">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\Dropbox\Techsylvania\VitalMusic\db\development.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails VitalMusic: test" uuid="a90b8117-19e7-4936-ae08-35ab2a4415d4">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\Dropbox\Techsylvania\VitalMusic\db\development.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails VitalMusic: production" uuid="c18b584c-bbcb-4f3d-8901-bae6f5823b86">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/VitalMusic_production</jdbc-url>
+      <user-name>VitalMusic</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffcdfe3dffedfebdfe6dfe7dfffdff9dfe3dfe9dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails VitalMusic: default" uuid="2e7f2e08-62b4-4ea3-b2d3-2aa0ae6e6a51">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\Dropbox\Techsylvania\VitalMusic\db\development.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
