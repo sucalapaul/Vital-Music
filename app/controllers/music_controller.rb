@@ -13,9 +13,9 @@ class MusicController < ApplicationController
 
 
     require 'oauth2'
-    client = OAuth2::Client.new('d0ca7c8afa63021bd17991617a5fb275', '9a9c959fcc7ad49bf85fdbae78b82392', :site => 'http://api.soundcloud.com')
+    client = OAuth2::Client.new('d0ca7c8afa63021bd17991617a5fb275', '9a9c959fcc7ad49bf85fdbae78b82392', :site => 'https://soundcloud.com/connect')
 
-    asdw = client.auth_code.authorize_url(:redirect_uri => 'http://vitalmusicccc.com:3000/oauth2/callback')
+    asdw = client.auth_code.authorize_url(:redirect_uri => 'http://vital-music.herokuapp.com/oauth2/callback')
     a = asdw
     # client.auth_code.authorize_url(:redirect_uri => 'http://localhost:3000/oauth2/callback')
     # => "https://example.org/oauth/authorization?response_type=code&client_id=client_id&redirect_uri=http://localhost:8080/oauth2/callback"
@@ -30,7 +30,7 @@ class MusicController < ApplicationController
   end
 
   def callback
-
+    render json: { a: params }
   end
 
   def test
