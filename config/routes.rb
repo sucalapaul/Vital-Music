@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  get 'music/:mood' => 'music#mood'
+  get 'music/:mood' => 'music#playlist'
   get 'oauth2/callback' => 'music#callback'
   get 'test' => 'music#test'
   # Example of named route that can be invoked with purchase_url(id: product.id)

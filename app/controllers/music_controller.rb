@@ -1,4 +1,6 @@
 class MusicController < ApplicationController
+  require 'open-uri'
+  require 'json'
 
   def mood
 
@@ -31,6 +33,19 @@ class MusicController < ApplicationController
 
   def callback
     render json: { a: params }
+  end
+
+  def playlist
+    response = JSON.load(open("http://api.soundcloud.com/playlists/37496379?client_id=d0ca7c8afa63021bd17991617a5fb275&format=json").read)
+
+    tracks = []
+    if response['kind'] == 'playlist'
+      response['tracks'].each do |t|
+        tracks << t.symbolize_keys.slice(:stream_url, :artwork_url, :title)
+      end
+    end
+
+    render json: tracks
   end
 
   def test
