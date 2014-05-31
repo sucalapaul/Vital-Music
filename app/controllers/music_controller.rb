@@ -41,15 +41,15 @@ class MusicController < ApplicationController
 
     # AI Algorithm
     case mood
-      when '2'
+      when '5'
         playlist_id = '37496379' #angry
       when '3'
         playlist_id = '37495759' #workout
-      when '1'
-        playlist_id = '37495323' #sad
       when '4'
+        playlist_id = '37495323' #sad
+      when '2'
         playlist_id = '37494998' #exciting
-      when '5'
+      when '1'
         playlist_id = '37494896' #relax
        else
         playlist_id = '1'
