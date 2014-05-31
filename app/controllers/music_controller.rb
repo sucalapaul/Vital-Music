@@ -36,14 +36,35 @@ class MusicController < ApplicationController
   end
 
   def playlist
-    response = JSON.load(open("http://api.soundcloud.com/playlists/37496379?client_id=d0ca7c8afa63021bd17991617a5fb275&format=json").read)
+    mood = params[:mood]
+    playlist_id = ''
+
+    # AI Algorithm
+    case mood
+      when '2'
+        playlist_id = '37496379' #angry
+      when '3'
+        playlist_id = '37495759' #workout
+      when '1'
+        playlist_id = '37495323' #sad
+      when '4'
+        playlist_id = '37494998' #exciting
+      when '5'
+        playlist_id = '37494896' #relax
+       else
+        playlist_id = '1'
+    end
+
+    response = JSON.load(open("http://api.soundcloud.com/playlists/" + playlist_id + "?client_id=d0ca7c8afa63021bd17991617a5fb275&format=json").read)
 
     tracks = []
     if response['kind'] == 'playlist'
       response['tracks'].each do |t|
-        tt = t.symbolize_keys.slice(:stream_url, :artwork_url, :title)
-        tt[:stream_url] = tt[:stream_url] + '?client_id=d0ca7c8afa63021bd17991617a5fb275'
-        tracks << tt
+        tt = t.symbolize_keys.slice(:stream_url, :artwork_url, :title, :streamable)
+        if tt[:streamable]
+          tt[:stream_url] = tt[:stream_url] + '?client_id=d0ca7c8afa63021bd17991617a5fb275'
+          tracks << tt
+        end
       end
     end
 
