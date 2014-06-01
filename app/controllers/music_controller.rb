@@ -49,7 +49,7 @@ class MusicController < ApplicationController
     result = get_response('mood')
     mood = result['data']['title']
 
-    tracks = get_playlist(mood)
+    tracks = get_playlist(mood, true)
     render json: tracks
   end
 
@@ -57,35 +57,45 @@ class MusicController < ApplicationController
   def playlist
     mood = params[:mood]
 
-    tracks = get_playlist(mood)
+    tracks = get_playlist(mood, false)
 
     render json: tracks
   end
 
 
-  def get_playlist(mood)
+  def get_playlist(mood, with_pid)
     playlist_id = ''
+    pid = 1
 
     # AI Algorithm
     case mood
       when '5'
         playlist_id = '37496379' #angry
+        pid = 5
       when '3'
         playlist_id = '37495759' #workout
+        pid = 3
       when '4'
         playlist_id = '37495323' #sad
+        pid = 4
       when '2'
         playlist_id = '37494998' #exciting
+        pid = 2
       when '1'
         playlist_id = '37494896' #relax
+        pid = 1
       when 'Wakeup'
         playlist_id = '37494998' #exciting
+        pid = 2
       when 'Sleepy'
         playlist_id = '37494896' #relax
+        pid = 1
       when 'Sad'
         playlist_id = '37495323' #sad
+        pid = 4
       else
         playlist_id = '1'
+        pid = 1
     end
 
     response = JSON.load(open("http://api.soundcloud.com/playlists/" + playlist_id + "?client_id=d0ca7c8afa63021bd17991617a5fb275&format=json").read)
@@ -100,8 +110,13 @@ class MusicController < ApplicationController
         end
       end
     end
-    tracks
-    response = [ playlist_id: playlist_id, tracks: tracks ]
+
+    if with_pid
+      response = [ playlist_id: pid, tracks: tracks ]
+    else
+      tracks
+    end
+
   end
 
   def test
