@@ -48,7 +48,9 @@ class MusicController < ApplicationController
   def check
     result = get_response('mood')
     mood = result['data']['title']
-    render json: { mood: mood }
+
+    tracks = get_playlist(mood)
+    render json: tracks
   end
 
 
@@ -76,6 +78,12 @@ class MusicController < ApplicationController
         playlist_id = '37494998' #exciting
       when '1'
         playlist_id = '37494896' #relax
+      when 'Wakeup'
+        playlist_id = '37494998' #exciting
+      when 'Sleepy'
+        playlist_id = '37494896' #relax
+      when 'Sad'
+        playlist_id = '37495323' #sad
       else
         playlist_id = '1'
     end
