@@ -82,7 +82,7 @@ class MusicController < ApplicationController
   end
 
   def test
-    render json: { a: get_response('') }
+    render json: { a: get_response(params[:endpoint]) }
   end
 
   def client
