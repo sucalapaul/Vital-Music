@@ -5,9 +5,9 @@ class MusicController < ApplicationController
   def login
     client = OAuth2::Client.new('rbLG7rmUK1o', 'c247ecec1755768e0c0e9bfca7f4a20184613b4b', :site => 'https://jawbone.com/auth/oauth2/auth', scope: 'basic_read,extended_read,mood_read,move_read,sleep_read,meal_read')
     aa = client.auth_code.authorize_url(redirect_uri: 'https://vital-music.herokuapp.com/oauth2/callback')
-    redirect_to 'https://jawbone.com/auth/oauth2/auth?client_id=rbLG7rmUK1o&redirect_uri=http%3A%2F%2Fvital-music.herokuapp.com%2Foauth2%2Fcallback&response_type=code&scope=basic_read%20extended_read%20mood_read%20move_read%20sleep_read%20meal_read'
+    redirect_to 'https://jawbone.com/auth/oauth2/auth?client_id=rbLG7rmUK1o&redirect_uri=https%3A%2F%2Fvital-music.herokuapp.com%2Foauth2%2Fcallback&response_type=code&scope=basic_read%20extended_read%20mood_read%20move_read%20sleep_read%20meal_read'
 
-    # https://jawbone.com/auth/oauth2/token?client_id=rbLG7rmUK1o&client_secret=c247ecec1755768e0c0e9bfca7f4a20184613b4b&grant_type=authorization_code&code=aV1SI82xvTqJoKPCLBF8Yl1BsYWOn9sXahg1NdLOP28W50RLirv4Yp2e7Nm4e1NbSwEFZ8M53Go3cBlKhWQ6ztKFgLIjS__D7iGCNoWgCKE6ge4RvkfWgbgLpLKPawmtZy624qNT2BDebzmI2CD6mZFMVrnSCOs67RrSfjn7XUSXgvsAuL7BLWuVwux6cxHLKCpQnnWinrPk8lNHm2EhXRvdWVs4RN1C
+    # https://jawbone.com/auth/oauth2/token?client_id=rbLG7rmUK1o&client_secret=c247ecec1755768e0c0e9bfca7f4a20184613b4b&grant_type=authorization_code&code=W3AjaI7_iOWexGQfHbv4wELsustPIqURfbsNv7J6JdQanOinwTqbJ-XrW6uRY9jFUQJ2BGWj8ZQsyAZlLQS6bNlJFKJPK1kp5e3em0hDqIvq35w0EBzaWLr_yIKeSKqnxRx0Sty4SKVRvTgik1vmyZFMVrnSCOs67RrSfjn7XUSXgvsAuL7BLWuVwux6cxHLKCpQnnWinrPk8lNHm2EhXRvdWVs4RN1C
   end
 
   def mood
@@ -49,8 +49,8 @@ class MusicController < ApplicationController
     result = get_response('mood')
     mood = result['data']['title']
 
-    tracks = get_playlist(mood)
-    render json: tracks
+    # tracks = get_playlist(mood)
+    render json: {mood: mood}
   end
 
 
@@ -108,11 +108,11 @@ class MusicController < ApplicationController
   end
 
   def client
-    OAuth2::Client.new('rbLG7rmUK1o', 'c247ecec1755768e0c0e9bfca7f4a20184613b4b', :site => 'https://jawbone.com/auth/oauth2/auth', scope: 'basic_read,extended_read,mood_read,move_read,sleep_read')
+    OAuth2::Client.new('rbLG7rmUK1o', 'c247ecec1755768e0c0e9bfca7f4a20184613b4b', :site => 'https://jawbone.com/auth/oauth2/auth', scope: 'basic_read,extended_read,mood_read,move_read,sleep_read,meal_read')
   end
 
   def get_response(url)
-    session[:access_token] = 'aV1SI82xvTpL9tC0ZC4HQ0h8l1O0O7nqnsRkHx27-MBC7LrLTyKlEc9UDeu0GKusKMOqX0Y-lWDdDFi8idFI7FECdgRlo_GULMgGZS0EumxrKbZFiOmnmAPChBPDZ5JP'
+    session[:access_token] = 'aV1SI82xvTpL9tC0ZC4HQ0h8l1O0O7nqnsRkHx27-MBC7LrLTyKlEVAykT19yBwz8c9QkoSzRYjl61urkWPYxVECdgRlo_GULMgGZS0EumxrKbZFiOmnmAPChBPDZ5JP'
     access_token = OAuth2::AccessToken.new(client, session[:access_token])
     JSON.parse(access_token.get("/nudge/api/v.1.1/users/@me/#{url}").body)
   end
