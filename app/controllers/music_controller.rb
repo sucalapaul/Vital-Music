@@ -45,8 +45,23 @@ class MusicController < ApplicationController
     render json: { code: code }
   end
 
+  def check
+    result = get_response('mood')
+    mood = result['data']['title']
+    render json: { mood: mood }
+  end
+
+
   def playlist
     mood = params[:mood]
+
+    tracks = get_playlist(mood)
+
+    render json: tracks
+  end
+
+
+  def get_playlist(mood)
     playlist_id = ''
 
     # AI Algorithm
@@ -61,7 +76,7 @@ class MusicController < ApplicationController
         playlist_id = '37494998' #exciting
       when '1'
         playlist_id = '37494896' #relax
-       else
+      else
         playlist_id = '1'
     end
 
@@ -77,8 +92,7 @@ class MusicController < ApplicationController
         end
       end
     end
-
-    render json: tracks
+    tracks
   end
 
   def test
