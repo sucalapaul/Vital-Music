@@ -101,6 +101,7 @@ class MusicController < ApplicationController
       end
     end
     tracks
+    response = [ playlist_id: playlist_id, tracks: tracks ]
   end
 
   def test
