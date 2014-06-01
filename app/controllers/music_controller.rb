@@ -49,8 +49,8 @@ class MusicController < ApplicationController
     result = get_response('mood')
     mood = result['data']['title']
 
-    # tracks = get_playlist(mood)
-    render json: {mood: mood}
+    tracks = get_playlist(mood)
+    render json: tracks
   end
 
 
