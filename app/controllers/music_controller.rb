@@ -46,8 +46,22 @@ class MusicController < ApplicationController
   end
 
   def check
-    result = get_response('mood')
-    mood = result['data']['title']
+    skip_check = false
+    result = get_response('meals')
+    if result['data']['size'] > 0
+      last_meal = result['data']['items'].last
+      last_meal_timestamp = session['last_meal_timestamp'] ||= 0
+      if last_meal['time_created'] > last_meal_timestamp
+        session['last_meal_timestamp'] = last_meal['time_created']
+        mood = "Relaxing"
+        skip_check = true
+      end
+    end
+
+    unless skip_check
+      result = get_response('mood')
+      mood = result['data']['title']
+    end
 
     tracks = get_playlist(mood, true)
     render json: tracks
@@ -93,6 +107,9 @@ class MusicController < ApplicationController
       when 'Sad'
         playlist_id = '37495323' #sad
         pid = 4
+      when 'Relaxing'
+        playlist_id = '37494896' #relax
+        pid = 1
       else
         playlist_id = '1'
         pid = 1
