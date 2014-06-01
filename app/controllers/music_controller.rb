@@ -111,7 +111,7 @@ class MusicController < ApplicationController
         playlist_id = '37494896' #relax
         pid = 1
       else
-        playlist_id = '1'
+        playlist_id = '37494896' #relax
         pid = 1
     end
 
